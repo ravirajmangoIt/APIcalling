@@ -1,0 +1,33 @@
+.product-item:hover {
+    background-color: lavender;
+    transform: scale(1.05);
+  
+  }
+  .cartButton{
+    background: antiquewhite;
+    margin-left: 90%;
+    margin-bottom: 2%;
+  }
+  .product-list{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 24px;
+  }
+
+  .productView:hover {
+    
+    transform: scale(1.17);
+  }
+  .product-item{
+    position: relative;
+    padding: 20px;
+  }
+
+  .addCartBtn{
+    background-color: cornsilk;
+  }
+  .productView{
+    display: flex;
+    margin-left: 60px;
+    gap: 4px;
+  }

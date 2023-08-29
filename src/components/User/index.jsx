@@ -40,7 +40,7 @@ const User = () => {
 
   return (
     <div>
-      <h1>User List</h1>
+      <h1>Vite Project</h1>
       {isLoading ? (
         <p>Loading...</p>
       ) : (

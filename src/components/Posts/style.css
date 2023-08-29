@@ -34,3 +34,8 @@
     background-color: bisque;
     margin: 10px;
 }
+
+.buttonDiv{
+    display: flex;
+    gap: 4px;
+}

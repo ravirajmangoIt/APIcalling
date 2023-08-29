@@ -11,7 +11,7 @@ const Posts = () => {
   let [editingPost, setEditingPost] = useState(null);
 
   useEffect(() => {
-   
+
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((response) => response.json())
       .then((data) => setPosts(data))
@@ -20,11 +20,11 @@ const Posts = () => {
 
   const handleEdit = (postId) => {
     const postToEdit = posts.find((post) => post.id === postId);
-    
+
     setEditingPost(postToEdit);
     setEditModalOpen(true);
-    
-    
+
+
   };
   const handleSaveEdit = (postId, editedTitle, editedBody) => {
     const updatedPosts = posts.map((post) => {
@@ -42,10 +42,11 @@ const Posts = () => {
   };
 
   const handleDelete = (postId) => {
- 
-      const updatedPosts = posts.filter((post) => post.id !== postId);
-      setPosts(updatedPosts);
- 
+
+    const updatedPosts = posts.filter((post) => post.id !== postId);
+    setPosts(updatedPosts);
+    alert("User deleted succesfully")
+
   };
   return (
     <>
@@ -66,18 +67,24 @@ const Posts = () => {
                 <td>{post.title}</td>
                 <td>{post.body}</td>
                 <td >
-                  <button
-                    className="editButton"
-                    onClick={() => handleEdit(post.id)}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="deleteButton"
-                    onClick={() => handleDelete(post.id)}
-                  >
-                    Delete
-                  </button>
+                  <div  className="buttonDiv">
+                    <div>
+                      <button
+                        className="editButton"
+                        onClick={() => handleEdit(post.id)}
+                      >
+                        Edit
+                      </button>
+                    </div>
+                    <div>
+                      <button
+                        className="deleteButton"
+                        onClick={() => handleDelete(post.id)}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
                 </td>
               </tr>
             ))}
@@ -85,13 +92,13 @@ const Posts = () => {
         </table>
       </div>
       <div>
-      {editModalOpen && editingPost && (
-        < EditPostForm
-          post={editingPost}
-          onSave={handleSaveEdit}
-          onClose={handleEditModalClose}
-        />
-      )}
+        {editModalOpen && editingPost && (
+          < EditPostForm
+            post={editingPost}
+            onSave={handleSaveEdit}
+            onClose={handleEditModalClose}
+          />
+        )}
       </div>
     </>
   );

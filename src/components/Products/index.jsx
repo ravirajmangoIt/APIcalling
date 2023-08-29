@@ -29,6 +29,7 @@ const ProductList = () => {
                 previousProduct.map((item) =>
                     item.id == productId ? { ...item, cartItem: true } : item
                 ));
+                alert("Product  added to cart")
         }
 
     }
